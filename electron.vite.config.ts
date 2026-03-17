@@ -56,6 +56,29 @@ export default defineConfig(() => {
           input: {
             index: resolve(__dirname, 'src/index.html'),
           },
+          output: {
+            manualChunks(id) {
+              if (id.includes('node_modules/echarts-wordcloud')) {
+                return 'vendor-echarts-wordcloud'
+              }
+              if (id.includes('node_modules/zrender')) {
+                return 'vendor-zrender'
+              }
+              if (id.includes('node_modules/echarts')) {
+                return 'vendor-echarts'
+              }
+              if (id.includes('node_modules/@nuxt/ui')) {
+                return 'vendor-nuxt-ui'
+              }
+              if (id.includes('node_modules/reka-ui')) {
+                return 'vendor-reka-ui'
+              }
+              if (id.includes('node_modules/@zumer/snapdom')) {
+                return 'vendor-snapdom'
+              }
+              return undefined
+            },
+          },
         },
       },
       server: {

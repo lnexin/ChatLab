@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { ref, watch, computed, onMounted } from 'vue'
+import { ref, watch, computed, onMounted, defineAsyncComponent } from 'vue'
 import { useI18n } from 'vue-i18n'
-import { EChartWordcloud } from '@/components/charts'
+const EChartWordcloud = defineAsyncComponent(() => import('@/components/charts/EChartWordcloud.vue'))
 import type { EChartWordcloudData } from '@/components/charts'
 import { LoadingState, EmptyState, UITabs } from '@/components/UI'
 import UserSelect from '@/components/common/UserSelect.vue'
